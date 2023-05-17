@@ -1,0 +1,63 @@
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  password: String!
+  firstName: String!
+  lastName: String!
+  phoneNumber: String!
+  addresses: [Address!]!
+  role: Role!
+  Permission: [Permission]
+}
+
+type Permission {
+  id: ID!
+  name: String!
+  description: String
+}
+
+type Role {
+  id: ID!
+  name: String!
+  description: String
+  permissions: [Permission]
+}
+
+type Address {
+  street: String!
+  city: String!
+  province: String!
+  postalCode: String!
+  country: String!
+}
+
+type Product {
+  id: ID!
+  name: String!
+  description: String!
+  variants: [ProductVariant!]!
+  categories: [Category!]!
+  attributes: [ProductAttribute!]!
+  user: User!
+}
+
+type ProductVariant {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+}
+
+type ProductAttribute {
+  product: Product!
+  name: String!
+  value: String!
+}
+
+type Category {
+  id: ID!
+  name: String!
+  description: String!
+  products: [Product!]!
+}
