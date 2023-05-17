@@ -8,7 +8,7 @@ type User {
   phoneNumber: String!
   addresses: [Address!]!
   role: Role!
-  Permission: [Permission]
+  permissions: [Permission!]!
 }
 
 type Permission {
@@ -21,7 +21,7 @@ type Role {
   id: ID!
   name: String!
   description: String
-  permissions: [Permission]
+  permissions: [Permission!]!
 }
 
 type Address {
@@ -42,6 +42,13 @@ type Product {
   user: User!
 }
 
+type Brand {
+  id: ID!
+  name: String!
+  description: String!
+  categories: [Category!]!
+}
+
 type ProductVariant {
   id: ID!
   name: String!
@@ -57,7 +64,9 @@ type ProductAttribute {
 
 type Category {
   id: ID!
+  parent: Category
   name: String!
   description: String!
   products: [Product!]!
+  brands: [Brand!]!
 }
