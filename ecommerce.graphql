@@ -102,6 +102,16 @@ type Voucher {
   remainingQuantity: Int
 }
 
+type Order {
+  id: ID!
+  orderItem
+}
+
+type OrderItem {
+  id: ID!
+  order: Order!
+}
+
 enum DiscountType {
   PERCENTAGE
   AMOUNT
