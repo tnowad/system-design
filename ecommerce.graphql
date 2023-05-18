@@ -70,3 +70,45 @@ type Category {
   products: [Product!]!
   brands: [Brand!]!
 }
+
+type Discount {
+  id: ID!
+  code: String!
+  name: String!
+  description: String!
+  type: DiscountType!
+  value: Float!
+  minimumPurchase: Float
+  maximumDiscount: Float
+  startDate: String!
+  endDate: String!
+  applicableCategories: [Category!]
+  applicableProducts: [Product!]
+}
+
+type Voucher {
+  id: ID!
+  code: String!
+  name: String!
+  description: String
+  type: VoucherType!
+  value: Float!
+  miniumPurchase: Float
+  startDate: String!
+  endDate: String!
+  applicableCategories: [Category!]
+  applicableProducts: [Product!]
+  limitedQuantity: Int
+  remainingQuantity: Int
+}
+
+enum DiscountType {
+  PERCENTAGE
+  AMOUNT
+}
+
+enum VoucherType {
+  PERCENTAGE
+  AMOUNT
+  FREE_SHIPPING
+}
